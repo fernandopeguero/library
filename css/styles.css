@@ -94,13 +94,30 @@ html {
         }
     }
 
+    h3 {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
 
   }
 
   main {
     background-color: var(--main-text-color);
+    position: relative;
   }
 
   footer {
     padding: var(--pd-huge);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--pd-large);
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+
+    a {
+        text-decoration: none;
+        color: var(--main-text-color);
+    }
   }
