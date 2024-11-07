@@ -21,3 +21,63 @@ html {
     max-width: 100%;
     height: auto;
   }
+
+  /* General Styles */
+
+  :root {
+    /* padding */
+    --pd-small: 8px;
+    --pd-medium: 12px;
+    --pd-large: 16px;
+    --pd-huge: 24px;
+
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    
+  }
+
+  main {
+    flex: 1;
+    
+  }
+
+  .add-book {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+  }
+
+  /* Header */
+
+  header {
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    padding: var(--pd-huge);
+
+    .search-container {
+        grid-column: 2 / 3;
+        display: flex;
+        padding: 0 var(--pd-large);
+
+        input {
+            flex: 1;
+        }
+    }
+
+
+  }
+
+  main {
+    background-color: #CBDCEB;
+  }
+
+  footer {
+    padding: var(--pd-huge);
+  }
