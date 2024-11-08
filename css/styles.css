@@ -41,6 +41,7 @@ html {
     /* secundary */
 
     --secundary-action-color: #66bb6a;
+    --secundary-action-dark-color: #479673;
 
     --bg-transparent-white: rgba(255, 255, 255, .6);
 
@@ -236,6 +237,23 @@ html {
             bottom: 0px;
           }
         }
+    }
+
+
+    .add-book {
+
+      border: none;
+      background-color: var(--secundary-action-color);
+      border-radius: 50%;
+      padding: 0;
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    .add-book:hover {
+      transform: translateY(-8px);
+      transition: .5s;
+      background-color: var(--secundary-action-dark-color);
     }
   }
 
