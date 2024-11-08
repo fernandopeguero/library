@@ -77,10 +77,10 @@ html {
       top: 0;
       right: 0;
       z-index: 1;
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
-      display: none;
+      
       .modal {
         background-color: var(--main-text-color);
         width: 500px;
