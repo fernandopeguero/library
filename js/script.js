@@ -22,8 +22,8 @@ modal.addEventListener("click", function (e) {
 
     const target = e.target;
 
-    if(target.className === "modal-container"){
-        target.style.display = "none";
+    if(target.className === "modal-container" || target.className === "close-modal"){
+        modal.style.display = "none";
     }
 })
 
