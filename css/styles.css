@@ -30,12 +30,19 @@ html {
     --pd-medium: 12px;
     --pd-large: 16px;
     --pd-huge: 24px;
+    --pd-extra: 36px;
 
     /* color palette */
     --main-bg-color: #10375C;
     --main-text-color: #F4F6FF;
     --main-accent-color: #F3C623;
     --main-action-color: #EB8317;
+    
+    /* secundary */
+
+    --secundary-action-color: #66bb6a;
+
+    --bg-transparent-white: rgba(255, 255, 255, .6);
 
   }
 
@@ -65,7 +72,7 @@ html {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
-    padding: var(--pd-huge);
+    padding: var(--pd-extra);
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
 
@@ -105,6 +112,131 @@ html {
   main {
     background-color: var(--main-text-color);
     position: relative;
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: var(--pd-large);
+        gap: var(--pd-large);
+
+        li {
+            list-style: none;
+            position: relative;
+            border-radius: var(--pd-large);
+            width: 100%;
+            overflow: hidden;
+            height: fit-content;
+            
+
+            img {
+              
+              width: 100%;
+              height: 100%;
+              border-radius: var(--pd-large);
+            }
+
+            i {
+              position: absolute;
+              top: 25px;
+              right: 25px;
+              cursor: pointer;
+              color: var(--main-text-color);
+              padding: var(--pd-small);
+              background-color: var(--secundary-action-color);
+              border-radius: 50%;
+              transition: .5s;
+              -webkit-box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
+              -moz-box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
+              box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
+            }
+
+            i:hover {
+              color: var(--main-bg-color);
+              transform: translateY(-8px);
+              transition: .5s;
+
+            }
+
+            .round {
+              position: absolute;
+              top: var(--pd-huge);
+              left: var(--pd-huge);
+              transition: .5s;
+
+              label {
+                background-color: var(--main-text-color);
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                cursor: pointer;
+                height: 28px;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 28px;
+  
+                
+              }
+
+              label:after {
+                border: 2px solid #fff;
+                border-top: none;
+                border-right: none;
+                content: "";
+                height: 6px;
+                left: 7px;
+                opacity: 0;
+                position: absolute;
+                top: 8px;
+                transform: rotate(-45deg);
+                width: 12px;
+              }
+
+              input[type="checkbox"] {
+                visibility: hidden;
+              }
+
+              input[type="checkbox"]:checked + label {
+                background-color: var(--secundary-action-color);
+                border-color: var(--secundary-action-color);
+              }
+
+              input[type="checkbox"]:checked + label:after {
+                opacity: 1;
+              }
+            }
+
+            .round:hover {
+              color: var(--main-bg-color);
+              transform: translateY(-8px);
+              transition: .5s;
+            }
+
+            .info {
+
+              position: absolute;
+              bottom: -20px;
+              background-color: var(--bg-transparent-white);
+              text-align: center;
+              width: 100%;
+              padding: var(--pd-large);
+              font-weight: bold;
+              transition: .5s;
+              opacity: 0;
+              
+
+            }
+
+        
+        }
+
+        li:hover {
+
+          .info {
+            opacity: 1;
+            bottom: 0px;
+          }
+        }
+    }
   }
 
   footer {
