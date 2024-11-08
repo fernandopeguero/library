@@ -17,6 +17,8 @@ function addBookToLibrary(book) {
 const modal = document.querySelector(".modal-container");
 const addBook = document.querySelector(".add-book");
 
+const submitBook = document.querySelector(".submit");
+
 // remove focus from modal 
 modal.addEventListener("click", function (e) {
 
@@ -31,4 +33,21 @@ modal.addEventListener("click", function (e) {
 addBook.addEventListener("click", function (e) {
 
     modal.style.display = "flex";
+})
+
+
+submitBook.addEventListener("click", function (e) {
+    e.preventDefault();
+    const data = new FormData(document.querySelector("#form"))
+
+    addBookToLibrary({
+        title: data.get("title"),
+        author: data.get("author"),
+        year: data.get("year"),
+        read: data.get("read-book"),
+        img: data.get("img-url") || ""
+
+    })
+
+    modal.style.display = "none";
 })
