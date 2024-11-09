@@ -1,4 +1,21 @@
-let library = [];
+let library = [
+    {
+        title: "Harry Potter",
+        author: "Jk. Rowling",
+        year: 1995,
+        read: true,
+        poster:  "https://m.media-amazon.com/images/I/813RId-1qiL._AC_UF894,1000_QL80_.jpg"
+
+    },
+    {
+        title: "A song of fire and ice",
+        author: "George R. R. Martin",
+        year: 1996,
+        read: true,
+        poster:  "https://upload.wikimedia.org/wikipedia/en/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg"
+
+    }
+];
 
 // constructor function to create book
 function Book(title, author, year, read = false,img = '') {
@@ -79,17 +96,15 @@ submitBook.addEventListener("click", function (e) {
 })
 
 
-function displayBooks(index ,{title, author, year, read = false , img = ""}) {
-
-    console.log(read)
-
+function displayBooks(index ,{title, author, year, read = false , poster = ""}) {
+    
     const li = document.createElement("li");
     li.classList.add("book")
     li.setAttribute("data-index", index)
 
     // create image element 
     const image = document.createElement("img")
-    image.src = "https://m.media-amazon.com/images/M/MV5BNGJhM2M2MWYtZjIzMC00MDZmLThkY2EtOWViMDhhYjRhMzk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    image.src = poster
     image.alt = title
     // append to container 
     li.appendChild(image);
@@ -141,3 +156,15 @@ function displayBooks(index ,{title, author, year, read = false , img = ""}) {
     bookContainer.appendChild(li);
 }
 
+
+
+function showLibrary() {
+    bookContainer.innerHTML = "";
+
+    for(let i = 0; i < library.length; i++){
+       const book = library[i];
+        displayBooks(i, book)
+    }
+}
+
+showLibrary();
