@@ -3,7 +3,7 @@ let library = [];
 // constructor function to create book
 function Book(title, author, year, read = false,img = '') {
     this.title = title;
-    this.authro = author;
+    this.author = author;
     this.year = year;
     this.read = read;
     this.poster = img;
@@ -18,6 +18,8 @@ const modal = document.querySelector(".modal-container");
 const addBook = document.querySelector(".add-book");
 
 const submitBook = document.querySelector(".submit");
+
+const bookContainer = document.querySelector(".book-container");
 
 // remove focus from modal 
 modal.addEventListener("click", function (e) {
@@ -38,16 +40,104 @@ addBook.addEventListener("click", function (e) {
 
 submitBook.addEventListener("click", function (e) {
     e.preventDefault();
-    const data = new FormData(document.querySelector("#form"))
+    const form = new FormData(document.querySelector("#form"));
+
+    const title = form.get("title");
+    const author = form.get("author");
+    const year = Number(form.get("year") || 0);
+    const imageUrl = form.get("img-url") || "";
+
+    
+
+    if(title.trim() === "" || author.trim() === "" ) return;
+
+    let checkbox = false;
+
+    if(form.get("read-book") === "on") {
+        checkbox = true
+    }
 
     addBookToLibrary({
-        title: data.get("title"),
-        author: data.get("author"),
-        year: data.get("year"),
-        read: data.get("read-book"),
-        img: data.get("img-url") || ""
+        title: title,
+        author: author,
+        year: year || 0,
+        read: checkbox,
+        img: imageUrl || ""
 
     })
 
     modal.style.display = "none";
+
+    // display all the books
+    bookContainer.innerHTML = "";
+
+    for(let i = 0; i < library.length; i++){
+       const book = library[i];
+        displayBooks(i, book)
+    }
+
 })
+
+
+function displayBooks(index ,{title, author, year, read = false , img = ""}) {
+
+    console.log(read)
+
+    const li = document.createElement("li");
+    li.classList.add("book")
+    li.setAttribute("data-index", index)
+
+    // create image element 
+    const image = document.createElement("img")
+    image.src = "https://m.media-amazon.com/images/M/MV5BNGJhM2M2MWYtZjIzMC00MDZmLThkY2EtOWViMDhhYjRhMzk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    image.alt = title
+    // append to container 
+    li.appendChild(image);
+
+    // create icon element 
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid" ,"fa-trash")
+    li.appendChild(icon);
+
+    //create checkbox container 
+    const round = document.createElement("div");
+    round.classList.add("round");
+
+    // create checkbox element
+    const input = document.createElement("input")
+    input.type = "checkbox";
+    input.name = `checkbox-${title.replaceAll(" ", "")}`;
+    input.id = `checkbox-${title.replaceAll(" ", "")}`;
+    input.checked = read;
+
+    // create label element
+    const label = document.createElement("label")
+    label.setAttribute("for", `checkbox-${title.replaceAll(" ", "")}`);
+
+    // appending checkbox and label to round container 
+    round.appendChild(input)
+    round.appendChild(label);
+
+    // appending checkbox container to li 
+    li.appendChild(round);
+
+    // create info container for title and author
+    const info = document.createElement("div");
+    info.classList.add("info");
+
+    const bookTitle = document.createElement("h2");
+    bookTitle.textContent = title;
+
+    const bookAuthor = document.createElement("h3");
+    bookAuthor.textContent = author;
+
+    // append book title and author
+    info.appendChild(bookTitle)
+    info.appendChild(bookAuthor);
+
+    li.appendChild(info);
+
+
+    bookContainer.appendChild(li);
+}
+
