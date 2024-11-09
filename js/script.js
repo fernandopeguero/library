@@ -62,9 +62,7 @@ submitBook.addEventListener("click", function (e) {
     const title = form.get("title");
     const author = form.get("author");
     const year = Number(form.get("year") || 0);
-    const imageUrl = form.get("img-url") || "";
-
-    
+    const imageUrl = form.get("img-url").trim() === "" ? "https://placehold.co/400x600" : "";
 
     if(title.trim() === "" || author.trim() === "" ) return;
 
