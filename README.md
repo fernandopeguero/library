@@ -8,4 +8,4 @@ Features
 - **Upload Custom Photos**: Personalize your library by uploading custom photos for each book.
 This project is designed to be user-friendly and interactive, providing a streamlined experience for managing your book collection.
 
-![Screenshot 2024-11-09 215729](https://github.com/user-attachments/assets/78af45fc-7600-4871-9fbe-4371bb91b9c4)
+![Screenshot 2024-11-09 221621](https://github.com/user-attachments/assets/f001f691-592b-4033-a70f-3c39759c20a8)
