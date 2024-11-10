@@ -160,15 +160,17 @@ html {
             list-style: none;
             position: relative;
             border-radius: var(--pd-large);
+            height: 100%;
             width: 100%;
             overflow: hidden;
             height: fit-content;
             
 
             img {
-              
-              width: 100%;
+            
+              object-fit: contain;
               height: 100%;
+              width: 100%;
               border-radius: var(--pd-large);
             }
 
@@ -199,9 +201,7 @@ html {
               top: var(--pd-huge);
               left: var(--pd-huge);
               transition: .5s;
-              -webkit-box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
-              -moz-box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
-              box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
+
 
               label {
                 background-color: var(--main-text-color);
@@ -213,7 +213,9 @@ html {
                 position: absolute;
                 top: 0;
                 width: 28px;
-  
+                box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
+              -moz-box-shadow: 0px 5px 19px 0px rgba(18,18,18,1);
+              box-shadow: 0px 5px 19px 0px rgba(18,18,18,1); 
                 
               }
 
