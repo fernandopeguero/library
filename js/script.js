@@ -38,6 +38,8 @@ const submitBook = document.querySelector(".submit");
 
 const bookContainer = document.querySelector(".book-container");
 
+let deleteIcon = document.querySelectorAll(".fa-trash");
+
 // remove focus from modal 
 modal.addEventListener("click", function (e) {
 
@@ -92,6 +94,10 @@ submitBook.addEventListener("click", function (e) {
     }
 
 })
+
+// Delete book from library 
+
+
 
 
 function displayBooks(index ,{title, author, year, read = false , poster = ""}) {
@@ -152,6 +158,18 @@ function displayBooks(index ,{title, author, year, read = false , poster = ""}) 
 
 
     bookContainer.appendChild(li);
+
+
+    deleteIcon = document.querySelectorAll(".fa-trash")
+
+    if(library.length){
+        deleteIcon.forEach(element => element.addEventListener("click", (e) => {
+            const id =  Number(e.target.parentNode.dataset);
+        
+            deleteBook(id)
+        }))
+    }
+
 }
 
 
@@ -163,6 +181,15 @@ function showLibrary() {
        const book = library[i];
         displayBooks(i, book)
     }
+}
+
+
+
+function deleteBook(id) {
+
+   library.splice(id, 1);
+
+    showLibrary()
 }
 
 showLibrary();
