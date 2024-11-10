@@ -184,10 +184,10 @@ function displayBooks(index ,{title, author, year, read = false , poster = ""}) 
     const info = document.createElement("div");
     info.classList.add("info");
 
-    const bookTitle = document.createElement("h2");
+    const bookTitle = document.createElement("h3");
     bookTitle.textContent = title;
 
-    const bookAuthor = document.createElement("h3");
+    const bookAuthor = document.createElement("h4");
     bookAuthor.textContent = author;
 
     // append book title and author
