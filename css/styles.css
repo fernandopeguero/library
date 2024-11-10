@@ -130,7 +130,7 @@ html {
         button {
             border-radius: var(--pd-small);
             color: var(--main-text-color);
-            background-color: var(--main-action-color);
+            background-color: var(--secundary-action-color);
             padding: var(--pd-small) var(--pd-large);
             font-weight: bold;
             border: none;
@@ -141,7 +141,7 @@ html {
         }
 
         button:hover {
-          background-color: var(--main-accent-color);
+          background-color: var(--secundary-action-dark-color);
         }
     }
 
