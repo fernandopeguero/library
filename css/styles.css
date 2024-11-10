@@ -167,7 +167,8 @@ html {
 
             img {
             
-              object-fit: contain;
+              object-fit: cover;
+              width: 100%;
               height: 100%;
               border-radius: var(--pd-large);
             }
@@ -263,10 +264,8 @@ html {
               transition: .5s;
               opacity: 0;
               
-
             }
 
-        
         }
 
         li:hover {
@@ -310,3 +309,11 @@ html {
         color: var(--main-text-color);
     }
   }
+
+
+  /* @media (max-width: 800px) {
+
+    ul {
+      grid-template-columns: repeat(auto-fill, 250px);
+    }
+  } */
