@@ -38,7 +38,11 @@ const submitBook = document.querySelector(".submit");
 
 const bookContainer = document.querySelector(".book-container");
 
+// Delete Icon 
 let deleteIcon = document.querySelectorAll(".fa-trash");
+
+// Search bar 
+const search = document.querySelector("#search");
 
 // remove focus from modal 
 modal.addEventListener("click", function (e) {
@@ -95,7 +99,14 @@ submitBook.addEventListener("click", function (e) {
 
 })
 
-// Delete book from library 
+// filter by Title 
+
+search.addEventListener("input", (e) => {
+
+    const userInput = e.target.value;
+    const temp = library.filter(item => item.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase()))
+    showLibrary(temp);
+})
 
 
 
@@ -174,11 +185,11 @@ function displayBooks(index ,{title, author, year, read = false , poster = ""}) 
 
 
 
-function showLibrary() {
+function showLibrary(books) {
     bookContainer.innerHTML = "";
 
-    for(let i = 0; i < library.length; i++){
-       const book = library[i];
+    for(let i = 0; i < books.length; i++){
+       const book = books[i];
         displayBooks(i, book)
     }
 }
@@ -189,7 +200,11 @@ function deleteBook(id) {
 
    library.splice(id, 1);
 
-    showLibrary()
+    showLibrary(library)
 }
 
-showLibrary();
+function filterByTitle() {
+
+}
+
+showLibrary(library);
