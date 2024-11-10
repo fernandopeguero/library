@@ -14,7 +14,36 @@ let library = [
         read: true,
         poster:  "https://upload.wikimedia.org/wikipedia/en/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg"
 
+    },
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        year: 1937,
+        read: false,
+        poster: "https://www.harpercollins.com/cdn/shop/files/9780063388468_1200x1200.jpg?v=1728071347"
+    },
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        year: 1960,
+        read: true,
+        poster: "https://m.media-amazon.com/images/I/81aY1lxk+9L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+        title: "1984",
+        author: "George Orwell",
+        year: 1949,
+        read: true,
+        poster: "https://m.media-amazon.com/images/I/61NAx5pd6XL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+        title: "Pride and Prejudice",
+        author: "Jane Austen",
+        year: 1813,
+        read: false,
+        poster: "https://m.media-amazon.com/images/I/812wzoJvRLL._AC_UF1000,1000_QL80_.jpg"
     }
+    
 ];
 
 // constructor function to create book
