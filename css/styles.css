@@ -259,7 +259,7 @@ html {
               background-color: var(--bg-transparent-white);
               text-align: center;
               width: 100%;
-              padding: var(--pd-large);
+              padding: var(--pd-large) var(--pd-small);
               font-weight: bold;
               transition: .5s;
               opacity: 0;
@@ -307,13 +307,7 @@ html {
     a {
         text-decoration: none;
         color: var(--main-text-color);
+        
     }
   }
 
-
-  /* @media (max-width: 800px) {
-
-    ul {
-      grid-template-columns: repeat(auto-fill, 250px);
-    }
-  } */
