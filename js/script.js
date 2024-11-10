@@ -104,7 +104,7 @@ submitBook.addEventListener("click", function (e) {
 search.addEventListener("input", (e) => {
 
     const userInput = e.target.value;
-    const temp = library.filter(item => item.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase()))
+    const temp = filterByTitle(userInput)
     showLibrary(temp);
 })
 
@@ -203,8 +203,9 @@ function deleteBook(id) {
     showLibrary(library)
 }
 
-function filterByTitle() {
+function filterByTitle(input) {
 
+    return library.filter(item => item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase()))
 }
 
 showLibrary(library);
