@@ -135,14 +135,16 @@ html {
             font-weight: bold;
             border: none;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        button:hover {
+          background-color: var(--main-accent-color);
         }
     }
 
-    h3 {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
 
   }
 
