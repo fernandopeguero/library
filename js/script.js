@@ -80,6 +80,7 @@ modal.addEventListener("click", function (e) {
 
     if(target.className === "modal-container" || target.className === "close-modal"){
         modal.style.display = "none";
+
     }
 })
 
@@ -92,7 +93,7 @@ addBook.addEventListener("click", function (e) {
 
 submitBook.addEventListener("click", function (e) {
     e.preventDefault();
-    const form = new FormData(document.querySelector("#form"));
+    const form = new FormData(document.querySelector("#book-form"));
 
     const title = form.get("title");
     const author = form.get("author");
@@ -125,6 +126,8 @@ submitBook.addEventListener("click", function (e) {
        const book = library[i];
         displayBooks(i, book)
     }
+
+    resetForm();
 
 })
 
@@ -235,6 +238,24 @@ function deleteBook(id) {
 function filterByTitle(input) {
 
     return library.filter(item => item.title.toLocaleLowerCase().includes(input.toLocaleLowerCase()))
+}
+
+function resetForm() {
+    
+    // const title = document.getElementById("title");
+    // const author = document.getElementById("author");
+    // const year = document.getElementById("year");
+    // const url = document.getElementById("img-url");
+    // const readCheckbox = document.getElementById("read-book");
+
+    // title.value = "";
+    // author.value = "";
+    // year.value = "";
+    // url.value = "";
+    // readCheckbox.checked = false;
+
+    const form = document.getElementById("book-form");
+    form.reset();
 }
 
 showLibrary(library);
