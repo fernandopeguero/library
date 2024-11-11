@@ -155,7 +155,16 @@ function displayBooks(index ,{title, author, year, read = false , poster = ""}) 
 
     // create icon element 
     const icon = document.createElement("i");
-    icon.classList.add("fa-solid" ,"fa-trash")
+    icon.classList.add("fa-solid" ,"fa-trash");
+
+    icon.addEventListener("click", (e) => {
+        const id =  Number(e.target.parentNode.dataset.index);
+
+            if(isNaN(id)) return;
+        
+            deleteBook(id);
+    })
+
     li.appendChild(icon);
 
     //create checkbox container 
@@ -197,19 +206,9 @@ function displayBooks(index ,{title, author, year, read = false , poster = ""}) 
     li.appendChild(info);
 
 
+
+
     bookContainer.appendChild(li);
-
-
-    deleteIcon = document.querySelectorAll(".fa-trash")
-
-    if(library.length){
-        deleteIcon.forEach(element => element.addEventListener("click", (e) => {
-            const id =  Number(e.target.parentNode.dataset);
-        
-            deleteBook(id)
-        }))
-    }
-
 }
 
 
@@ -221,6 +220,7 @@ function showLibrary(books) {
        const book = books[i];
         displayBooks(i, book)
     }
+
 }
 
 
