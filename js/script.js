@@ -73,6 +73,7 @@ let deleteIcon = document.querySelectorAll(".fa-trash");
 // Search bar 
 const search = document.querySelector("#search");
 
+
 // remove focus from modal 
 modal.addEventListener("click", function (e) {
 
@@ -184,6 +185,11 @@ function displayBooks(index ,{title, author, year, read = false , poster = ""}) 
     // create label element
     const label = document.createElement("label")
     label.setAttribute("for", `checkbox-${title.replaceAll(" ", "")}`);
+    label.addEventListener("click", (e) => {
+        
+        library[index].read = !library[index].read;
+
+    })
 
     // appending checkbox and label to round container 
     round.appendChild(input)
