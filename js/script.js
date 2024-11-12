@@ -247,18 +247,6 @@ function filterByTitle(input) {
 }
 
 function resetForm() {
-    
-    // const title = document.getElementById("title");
-    // const author = document.getElementById("author");
-    // const year = document.getElementById("year");
-    // const url = document.getElementById("img-url");
-    // const readCheckbox = document.getElementById("read-book");
-
-    // title.value = "";
-    // author.value = "";
-    // year.value = "";
-    // url.value = "";
-    // readCheckbox.checked = false;
 
     const form = document.getElementById("book-form");
     form.reset();
